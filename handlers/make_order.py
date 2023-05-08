@@ -27,7 +27,8 @@ class FSMMakeOrder(StatesGroup):
     confirm = State()
 
 
-@router.message(Command(commands="make_order"), F.from_user.id.in_(set(tokens_db.keys())))
+@router.message(Command(commands="make_order"),
+                F.from_user.id.in_(set(tokens_db.keys())))
 async def start_make_order_form(message: Message, state: FSMContext):
     await message.delete()
     msg = await message.answer(text=LEXICON["fill_instrument"])
