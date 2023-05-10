@@ -15,7 +15,7 @@ jobs:
         pip install -r requirements.txt
     - name: black
       run: black .
-    - name: flake80
+    - name: flake801
       run: flake8 . --max-line-length 99 --per-file-ignores="__init__.py:F403, F401"
     - name: flake8
       run: flake8 . --per-file-ignores="__init__.py:F403, F401"
