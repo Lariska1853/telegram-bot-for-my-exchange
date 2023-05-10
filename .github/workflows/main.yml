@@ -16,7 +16,8 @@ jobs:
     - name: black
       run: black .
     - name: flake8
-      run: flake8 . --per-file-ignores="__init__.py:F403, F401"
+      run: flake8 . --per-file-ignores="__init__.py:F403, F401"\
+                    --max-line-length = 100
     - name: mypy
       run: mypy .
 
