@@ -68,7 +68,7 @@ async def process_password_sent(message: Message, bot: Bot, state: FSMContext):
         raise ValueError
     tokens_db[message.from_user.id] = token
     text = LEXICON["logged_in"]
-    await bot.edit_message_text(
+    bot.edit_message_text(
         text=text, chat_id=chat_id, message_id=form_msg_id,
         reply_markup=del_keyboard()
     )
