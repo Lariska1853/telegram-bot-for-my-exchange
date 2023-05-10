@@ -15,7 +15,8 @@ jobs:
         pip install -r requirements.txt
     - name: black
       run: black .
-    - name: mypy
-      run: mypy .
     - name: flake8
       run: flake8 --per-file-ignores="__init__.py:F401" .
+    - name: mypy
+      run: mypy .
+
