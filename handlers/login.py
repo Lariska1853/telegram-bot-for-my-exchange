@@ -36,7 +36,7 @@ async def process_username_sent(message: Message, bot: Bot, state: FSMContext):
     order = await state.get_data()
     form_msg_id = order["form_msg_id"]
     chat_id = order["chat_id"]
-    bot.edit_message_text(text=text, chat_id=chat_id,
+    await bot.edit_message_text(text=text, chat_id=chat_id,
                                 message_id=form_msg_id)
     await state.set_state(FSMLogin.fill_password)
 
@@ -68,7 +68,7 @@ async def process_password_sent(message: Message, bot: Bot, state: FSMContext):
         raise ValueError
     tokens_db[message.from_user.id] = token
     text = LEXICON["logged_in"]
-    bot.edit_message_text(
+    await bot.edit_message_text(
         text=text, chat_id=chat_id, message_id=form_msg_id,
         reply_markup=del_keyboard()
     )
