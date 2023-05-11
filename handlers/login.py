@@ -1,5 +1,5 @@
 import json
-import requests # type: ignore
+import requests
 from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
