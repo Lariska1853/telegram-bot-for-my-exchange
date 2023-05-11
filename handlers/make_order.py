@@ -1,5 +1,5 @@
 import json
-from websocket import create_connection
+from websocket import create_connection # type: ignore
 from aiogram import Router, F
 from aiogram.filters import Command, Text
 from database.database import tokens_db
