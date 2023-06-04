@@ -1,0 +1,24 @@
+name: testing_workflow
+on: workflow_dispatch
+jobs:
+  code-style:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install requirements
+    - name: black
+      run: |
+        pip install black
+        black .
+    - name: flake801
+      run: |
+        pip install flake8
+        flake8 .
+    - name: mypy
+      run: |
+        pip install mypy
+        mypy .
